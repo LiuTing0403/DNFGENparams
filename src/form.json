@@ -1,0 +1,293 @@
+{
+  "data": [
+    {
+      "group_name" : "Gereral Options",
+      "inputs" : [
+        {
+          "name" : "stopCondition",
+          "type" : "select",
+          "desc" : "0: stop once nPoly fractures are accepted (Defined below), /n 1: stop once all family's p32 values are equal or greater than the families target p32 values (defined in stochastic family sections)"
+        },
+        {
+          "name" : "nPoly",
+          "type" : "number"
+        },
+        {
+          "name" : "outputAllRadii",
+          "type" : "number"
+        },
+        {
+          "name" : "domainSize",
+          "type" : "array"
+        },
+        {
+          "name" : "numOfLayers",
+          "type" : "number"
+        },
+        {
+          "name" : "layers",
+          "type" : "array"
+        },
+        {
+          "name" : "h",
+          "type" : "number"
+        }
+      ]
+    },
+    {
+      "group_name" : "Fracture Network Parameters",
+      "inputs" : [
+        {
+          "name" : "tripleIntersections",
+          "type" : "select"
+        },
+        {
+          "name" : "printRejectReasons",
+          "type" : "select"
+        },
+        {
+          "name" : "visualizationMode",
+          "type" : "select"
+        },
+        {
+          "name" : "seed",
+          "type" : "number"
+        },
+        {
+          "name" : "domainSizeIncrease",
+          "type" : "array"
+        },
+        {
+          "name" : "keepOnlyLargestCluster",
+          "type" : "select"
+        },
+        {
+          "name" : "ignoreBoundaryFaces",
+          "type" : "select"
+        },
+        {
+          "name" : "boundaryFaces",
+          "type" : "array"
+        },
+        {
+          "name" : "rejectsPerFracture",
+          "type" : "number"
+        }
+      ]
+    },
+    {
+      "group_name" : " Shape and Probability Parameters",
+      "inputs" : [
+        {
+          "name" : "famProb",
+          "type" : "number"
+        }
+      ]
+    },
+    {
+      "group_name" : "Elliptical Fracture Options",
+      "inputs" : [
+        {
+          "name" : "nFamEll",
+          "type" : "number"
+        },
+        {
+          "name" : "eLayer",
+          "type" : "array"
+        },
+        {
+          "name" : "edistr",
+          "type" : "array"
+        },
+        {
+          "name" : "ebetaDistribution",
+          "type" : "array"
+        },
+        {
+          "name" : "e_p32Targets",
+          "type" : "array"
+        },
+        {
+          "name" : "easpect",
+          "type" : "array"
+        },
+        {
+          "name" : "enumPoints",
+          "type" : "array"
+        },
+        {
+          "name" : "eAngleOption",
+          "type" : "select"
+        },
+        {
+          "name" : "etheta",
+          "type" : "array"
+        },
+        {
+          "name" : "ephi",
+          "type" : "array"
+        },
+        {
+          "name" : "ebeta",
+          "type" : "array"
+        },
+        {
+          "name" : "ekappa",
+          "type" : "array"
+        },
+        {
+          "name" : "eLogMean",
+          "type" : "array"
+        },
+        {
+          "name" : "eLogMax",
+          "type" : "array"
+        },
+        {
+          "name" : "eLogMin",
+          "type" : "array"
+        },
+        {
+          "name" : "esd",
+          "type" : "array"
+        },
+        {
+          "name" : "eExpMean",
+          "type" : "array"
+        },
+        {
+          "name" : "eExpMax",
+          "type" : "array"
+        },
+        {
+          "name" : "eExpMin",
+          "type" : "array"
+        },
+        {
+          "name" : "econst",
+          "type" : "array"
+        },
+        {
+          "name" : "emin",
+          "type" : "array"
+        },
+        {
+          "name" : "emax",
+          "type" : "array"
+        },
+        {
+          "name" : "ealpha",
+          "type" : "array"
+        }
+      ]
+    },
+    {
+      "group_name" : "Rctangular Fractures Options",
+      "inputs": [
+        {
+          "name" : "nFamRect",
+          "type" : "number"
+        },
+        {
+          "name" : "rLayer",
+          "type" : "array"
+        },
+        {
+          "name" : "rdistr",
+          "type" : "array"
+        },
+        {
+          "name" : "rbetaDistribution",
+          "type" : "array"
+        },
+        {
+          "name" : "r_p32Targets",
+          "type" : "array"
+        },
+        {
+          "name" : "raspect",
+          "type" : "array"
+        },
+        {
+          "name" : "rAngleOption",
+          "type" : "select"
+        },
+        {
+          "name" : "rtheta",
+          "type" : "array"
+        },
+        {
+          "name" : "rphi",
+          "type" : "array"
+        },
+        {
+          "name" : "rbeta",
+          "type" : "array"
+        },
+        {
+          "name" : "rkappa",
+          "type" : "array"
+        },
+        {
+          "name" : "rLogMean",
+          "type" : "array"
+        },
+        {
+          "name" : "rLogMax",
+          "type" : "array"
+        },
+        {
+          "name" : "rLogMin",
+          "type" : "rsd"
+        },
+        {
+          "name" : "rmin",
+          "type" : "array"
+        },
+        {
+          "name" : "rmax",
+          "type" : "array"
+        },
+        {
+          "name" : "ralpha",
+          "type" : "array"
+        },
+        {
+          "name" : "rExpMean",
+          "type" : "array"
+        },
+        {
+          "name" : "rExpMax",
+          "type" : "array"
+        },
+        {
+          "name" : "rExpMin",
+          "type" : "array"
+        },
+        {
+          "name" : "rconst",
+          "type" : "array"
+        },
+        {
+          "name" : "userEllipsesOnOff",
+          "type" : "select"
+        },
+        {
+          "name" : "UserEll_Input_File_Path",
+          "type" : "text"
+        },
+        {
+          "name" : "userEllByCoord",
+          "type" : "select"
+        },
+        {
+          "name" : "EllByCoord_Input_File_Path",
+          "type" : "text"
+        },
+        {
+          "name" : ""
+        }
+      ]
+    }
+  ]
+}

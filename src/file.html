@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <form>
+    <input type="file" id="file"/>
+    <button id="btn">导入</button>
+  </form>
+</body>
+<script>
+  document.getElementById('btn').addEventListener('click', function() {
+    var file = document.getElementById('file').files[0]
+    var reader = new FileReader()
+    reader.readAsText(file)
+    reader.onload = function(e) {
+      var text = e.target.result
+      console.log(text)
+    }
+  })
+</script>
+</html>
