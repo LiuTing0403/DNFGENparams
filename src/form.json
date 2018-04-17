@@ -1,86 +1,147 @@
 {
   "data": [
     {
-      "group_name" : "Gereral Options",
+      "group_name" : "Gereral Option",
       "inputs" : [
         {
-          "name" : "stopCondition",
-          "type" : "select",
-          "desc" : "0: stop once nPoly fractures are accepted (Defined below), /n 1: stop once all family's p32 values are equal or greater than the families target p32 values (defined in stochastic family sections)"
+          "title" : "StopCondition",
+          "name" : "$stopCondition",
+          "type" : "radio",
+          "values" : [0, 1]
         },
         {
+          "title" : "Total Fracture Num",
           "name" : "nPoly",
           "type" : "number"
         },
         {
-          "name" : "outputAllRadii",
+          "title" : "Domain Size",
+          "name" : "$domainSize",
+          "type" : "array",
+          "size" : [3]
+        },
+        {
+          "title" : "Num. of Layers",
+          "name" : "$numOfLayers",
           "type" : "number"
         },
         {
-          "name" : "domainSize",
-          "type" : "array"
+          "title" : "Layers",
+          "name" : "$layers",
+          "type" : "array",
+          "size" : [2, 2]
         },
         {
-          "name" : "numOfLayers",
+          "title" : "Minimum Fracture Length Scale",
+          "name" : "$h",
           "type" : "number"
         },
         {
-          "name" : "layers",
-          "type" : "array"
-        },
-        {
-          "name" : "h",
-          "type" : "number"
-        }
-      ]
-    },
-    {
-      "group_name" : "Fracture Network Parameters",
-      "inputs" : [
-        {
-          "name" : "tripleIntersections",
-          "type" : "select"
-        },
-        {
-          "name" : "printRejectReasons",
-          "type" : "select"
-        },
-        {
-          "name" : "visualizationMode",
-          "type" : "select"
-        },
-        {
-          "name" : "seed",
+          "title" : "Radii List Increase",
+          "name" : "$radiiListIncrease",
           "type" : "number"
         },
         {
-          "name" : "domainSizeIncrease",
-          "type" : "array"
-        },
-        {
-          "name" : "keepOnlyLargestCluster",
-          "type" : "select"
-        },
-        {
-          "name" : "ignoreBoundaryFaces",
-          "type" : "select"
-        },
-        {
-          "name" : "boundaryFaces",
-          "type" : "array"
-        },
-        {
-          "name" : "rejectsPerFracture",
+          "title" : "Fracture Removal Threshold",
+          "name" : "$removeFracturesLessThan",
           "type" : "number"
-        }
-      ]
-    },
-    {
-      "group_name" : " Shape and Probability Parameters",
-      "inputs" : [
+        },
         {
-          "name" : "famProb",
+          "title" : "output All Radii",
+          "name" : "$outputAllRadii",
+          "sub_group" : "File Output Option:",
+          "type" : "radio",
+          "values": [0, 1]
+        },
+        {
+          "title" : "output Final Radii Per Family",
+          "name" : "$outputFinalRadiiPerFamily",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "output Accepted Radii Per Family",
+          "name" : "$outputAcceptedRadiiPerFamily",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "sub_group" : "Fracture Network Parameters:",
+          "title" : "triple Intersections",
+          "name" : "$tripleIntersections",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "force Large Fractures",
+          "name" : "$forceLargeFractures",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "print Reject Reasons",
+          "name" : "$printRejectReasons",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "Disable FRAM",
+          "name" : "$disableFram",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "visualization Mode",
+          "name" : "$visualizationMode",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "seed",
+          "name" : "$seed",
           "type" : "number"
+        },
+        {
+          "title" : "domain Size increase",
+          "name" : "$domainSizeIncrease",
+          "type" : "array",
+          "size" : [1]
+        },
+        {
+          "title" : "keep Only Largest Cluster",
+          "name" : "$keepOnlyLargestCluster",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "ignore Boundary Faces",
+          "name" : "$ignoreBoundaryFaces",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "boundaryFaces",
+          "name" : "$boundaryFaces",
+          "type" : "array",
+          "size" : [6]
+        },
+        {
+          "title" : "rejects Per Fracture",
+          "name" : "$rejectsPerFracture",
+          "type" : "number"
+        },
+        {
+          "title" : "insert User Rectangles First",
+          "name": "$insertUserRectanglesFirst",
+          "type" : "radio",
+          "values": [0, 1]
+        },
+        {
+          "sub_group" : "Probability Parameters",
+          "title" : "famProb",
+          "name" : "$famProb",
+          "type" : "array",
+          "size" : [3]
         }
       ]
     },
@@ -88,204 +149,391 @@
       "group_name" : "Elliptical Fracture Options",
       "inputs" : [
         {
-          "name" : "nFamEll",
+          "title" : "Num of Ellipse Families",
+          "name" : "$nFamEll",
           "type" : "number"
         },
         {
-          "name" : "eLayer",
-          "type" : "array"
+          "title" : "e_Layer",
+          "name" : "$eLayer",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "edistr",
-          "type" : "array"
+          "title" : "e_Distribution Option",
+          "name" : "$edistr",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "ebetaDistribution",
-          "type" : "array"
+          "title" : "e_betadistribution",
+          "name" : "$ebetaDistribution",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "e_p32Targets",
-          "type" : "array"
+          "title" : "e_p32Targets",
+          "name" : "$e_p32Targets",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "easpect",
-          "type" : "array"
+          "sub_group" : "Parameters used by all",
+          "title" : "e_Aspect Ration",
+          "name" : "$easpect",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "enumPoints",
-          "type" : "array"
+          "title" : "e_Angle Option",
+          "name" : "$eAngleOption",
+          "type" : "radio",
+          "size" : [2]
         },
         {
-          "name" : "eAngleOption",
-          "type" : "select"
+          "title" : "e_numPoints",
+          "name" : "$enumPoints",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "etheta",
-          "type" : "array"
+          "title" : "e_theta",
+          "name" : "$etheta",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "ephi",
-          "type" : "array"
+          "title" : "e_phi",
+          "name" : "$ephi",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "ebeta",
-          "type" : "array"
+          "title" : "e_beta",
+          "name" : "$ebeta",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "ekappa",
-          "type" : "array"
+          "title" : "e_kappa",
+          "name" : "$ekappa",
+          "type" : "array",
+          "size" : [2]    
         },
         {
-          "name" : "eLogMean",
-          "type" : "array"
+          "sub_group" : "Long-Normal Distribution Options",
+          "title" : "e_LogMean",
+          "name" : "$eLogMean",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "eLogMax",
-          "type" : "array"
+          "title" : "e_sd",
+          "name" : "$esd",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "eLogMin",
-          "type" : "array"
+          "title" : "e_LogMin",
+          "name" : "$eLogMin",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "esd",
-          "type" : "array"
+          "title" : "e_LogMax",
+          "name" : "$eLogMax",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "eExpMean",
-          "type" : "array"
+          "sub_group" : "Truncated Power-Law Distribution Options",
+          "title" : "e_min",
+          "name" : "$emin",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "eExpMax",
-          "type" : "array"
+          "title" : "e_max",
+          "name" : "$emax",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "eExpMin",
-          "type" : "array"
+          "title" : "e_alpha",
+          "name" : "$ealpha",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "econst",
-          "type" : "array"
+          "sub_group" : "Exponential Distribution Options",
+          "title" : "e_ExpMean",
+          "name" : "$eExpMean",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "emin",
-          "type" : "array"
+          "title" : "e_ExpMin",
+          "name" : "$eExpMin",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "emax",
-          "type" : "array"
+          "title" : "e_ExpMax",
+          "name" : "$eExpMax",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "ealpha",
-          "type" : "array"
+          "sub_group" : "constant Size Option",
+          "title" : "e_const",
+          "name" : "$econst",
+          "type" : "array",
+          "size" : [1]
+        },
+        {
+          "sub_group" : "User-Specified Ellipses",
+          "title" : "user Ellipses On/off",
+          "name" : "$userEllipsesOnOff",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "UserEll_Input_File_Path",
+          "name" : "$UserEll_Input_File_Path",
+          "type" : "text"
+        },
+        {
+          "title" : "user Ellipses By Coord",
+          "name" : "$userEllByCoord",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "EllByCoord_Input_File_Path",
+          "name" : "$EllByCoord_Input_File_Path",
+          "type" : "text"
         }
       ]
     },
     {
-      "group_name" : "Rctangular Fractures Options",
+      "group_name" : "Rectangular Fracture Options",
       "inputs": [
         {
-          "name" : "nFamRect",
+          "title" : "Num of Rectangular Families",
+          "name" : "$nFamRect",
           "type" : "number"
         },
         {
-          "name" : "rLayer",
-          "type" : "array"
+          "title" : "r_Layer",
+          "name" : "$rLayer",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "rdistr",
-          "type" : "array"
+          "title" : "r_Distribution Option",
+          "name" : "$rdistr",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "rbetaDistribution",
-          "type" : "array"
+          "title" : "r_betadistribution",
+          "name" : "$rbetaDistribution",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "r_p32Targets",
-          "type" : "array"
+          "title" : "r_p32Targets",
+          "name" : "$r_p32Targets",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "raspect",
-          "type" : "array"
+          "sub_group" : "Parameters used by all",
+          "title" : "r_Aspect Ration",
+          "name" : "$raspect",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "rAngleOption",
-          "type" : "select"
+          "title" : "r_Angle Option",
+          "name" : "$rAngleOption",
+          "type" : "radio",
+          "values" : [0, 1]
         },
         {
-          "name" : "rtheta",
-          "type" : "array"
+          "title" : "r_theta",
+          "name" : "$rtheta",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "rphi",
-          "type" : "array"
+          "title" : "r_phi",
+          "name" : "$rphi",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "rbeta",
-          "type" : "array"
+          "title" : "r_beta",
+          "name" : "$rbeta",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "rkappa",
-          "type" : "array"
+          "title" : "r_kappa",
+          "name" : "$rkappa",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "rLogMean",
-          "type" : "array"
+          "sub_group" : "Long-Normal Distribution Options",
+          "title" : "r_LogMean",
+          "name" : "$rLogMean",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "rLogMax",
-          "type" : "array"
+          "title" : "r_sd",
+          "name" : "$rsd",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "rLogMin",
-          "type" : "rsd"
+          "title" : "r_LogMin",
+          "name" : "$rLogMin",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "rmin",
-          "type" : "array"
+          "title" : "r_LogMax",
+          "name" : "$rLogMax",
+          "type" : "array",
+          "size" : [2]
         },
         {
-          "name" : "rmax",
-          "type" : "array"
+          "sub_group" : "Truncated Power-Law Distribution Options ",
+          "title" : "r_min",
+          "name" : "$rmin",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "ralpha",
-          "type" : "array"
+          "title" : "r_max",
+          "name" : "$rmax",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "rExpMean",
-          "type" : "array"
+          "title" : "r_alpha",
+          "name" : "$ralpha",
+          "type" : "array",
+          "size" : [1]
         },
         {
-          "name" : "rExpMax",
-          "type" : "array"
+          "sub_group" : "Exponential Distribution Options",
+          "title" : "r_ExpMean",
+          "name" : "$rExpMean",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "rExpMin",
-          "type" : "array"
+          "title" : "r_ExpMin",
+          "name" : "$rExpMin",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "rconst",
-          "type" : "array"
+          "title" : "r_ExpMax",
+          "name" : "$rExpMax",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "userEllipsesOnOff",
-          "type" : "select"
+          "sub_group" : "constant Size Option",
+          "title" : "r_const",
+          "name" : "$rconst",
+          "type" : "array",
+          "size" : [3]
         },
         {
-          "name" : "UserEll_Input_File_Path",
+          "sub_group" : "User-Specified Rectangular",
+          "title" : "user Rectangular On/off",
+          "name" : "$userRectanglesOnOff",
+          "type" : "radio",
+          "values" : [0, 1]
+        },
+        {
+          "title" : "UserRect_input_file_path",
+          "name" : "$UserRect_Input_File_Path",
           "type" : "text"
         },
         {
-          "name" : "userEllByCoord",
-          "type" : "select"
+          "title" : "user Rectangular By Coord",
+          "name" : "$userRecByCoord",
+          "type" : "radio",
+          "values" : [0, 1]
         },
         {
-          "name" : "EllByCoord_Input_File_Path",
+          "title" : "RectByCoord_Input_File_Path",
+          "name" : "$RectByCoord_Input_File_Path",
+          "type" : "text"
+        }
+      ]
+    },
+    {
+      "group_name" : "Permeability Options",
+      "inputs" : [
+        {
+          "title" : "permeability Option",
+          "name" : "$permOption",
+          "type" : "radio",
+          "size" : [0, 1]
+        },
+        {
+          "title" : "constant_k",
+          "name" : "$constantPermeability",
+          "type" : "text"
+        }
+      ]
+    },
+    {
+      "group_name" : "Aperture Options",
+      "inputs" : [
+        {
+          "title" : "aperture",
+          "name" : "$aperture",
+          "type" : "radio",
+          "values" : [1, 2, 3, 4]
+        },
+        {
+          "sub_group" : "Log-Normal aperture Distribution Option",
+          "title" : "mean_Aperture",
+          "name" : "$meanAperture",
+          "type" : "number"
+        },
+        {
+          "title" : "std_Aperture",
+          "name" : "$stdAperture",
+          "type" : "number"
+        },
+        {
+          "sub_group" : "Aperture From Transmissivity Option",
+          "title" : "apertureFromTransmissivity",
+          "name" : "$apertureFromTransmissivity",
+          "type" : "array",
+          "size" : [2]
+        },
+        {
+          "sub_group" : "Constant Aperture Option",
+          "title" : "constantAperture",
+          "name" : "$constantAperture",
           "type" : "text"
         },
         {
-          "name" : ""
+          "sub_group" : "Length Correlated Aperture",
+          "title" : "lengthCorrelatedAperture",
+          "name" : "$lengthCorrelatedAperture",
+          "type" : "array",
+          "size" : [2]
         }
       ]
     }
