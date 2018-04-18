@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import {NumInput, RadioInput, TextInput} from './FormItems'
 import {data} from './form.json'
+import axios from 'axios'
 
 function createArray(size) {
   const result = []
@@ -53,6 +54,22 @@ class ArrayInput extends Component {
 class App extends PureComponent {
   handleSubmit(values) {
     console.log(values)
+    const url = 'http://127.0.0.1:8000/process-user-input'
+    const instance = axios.create({
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    instance.post(url, values).then(res => console.log(res))
+    // window.fetch(url, {
+    //   body: JSON.stringify(values),
+    //   headers: new Headers({
+    //     'Content-Type': 'application/json'
+    //   }),
+    //   method: 'POST',
+    //   mode: 'no-cors'
+    // }).then(response => console.log(response))
   }
   render() {
     return (
