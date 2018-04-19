@@ -54,6 +54,7 @@ class ArrayInput extends Component {
 class App extends PureComponent {
   handleSubmit(values) {
     console.log(values)
+    // const url = 'http://demo.learnta.cn/upload'
     const url = 'http://127.0.0.1:8000/process-user-input'
     // const instance = axios.create({
     //   headers: {
@@ -65,11 +66,14 @@ class App extends PureComponent {
     window.fetch(url, {
       body: JSON.stringify(values),
       headers: new Headers({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       }),
       method: 'POST',
-      mode: 'no-cors'
+      mode: 'no-cors',
+      withCredentials: true
     }).then(response => console.log(response))
+    .catch(err => console.log('err', err))
   }
   render() {
     return (
